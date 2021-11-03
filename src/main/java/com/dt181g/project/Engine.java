@@ -22,8 +22,8 @@ public class Engine {
 
     private void startProducerConsumer() {
         Thread producerThread = new Producer();
-        Thread consumerThread1 = new Consumer();
-        Thread consumerThread2 = new Consumer();
+        Thread consumerThread1 = new Consumer(1);
+        Thread consumerThread2 = new Consumer(2);
         Thread informerThread = new Informer();
 
         producerThread.start();

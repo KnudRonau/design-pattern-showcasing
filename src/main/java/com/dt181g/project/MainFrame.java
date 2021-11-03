@@ -12,8 +12,9 @@ public class MainFrame extends JFrame {
     public MainFrame() {
         contentpane = new JPanel();
         contentpane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        contentpane.setLayout(new BorderLayout());
         setContentPane(contentpane);
-        contentpane.setLayout(BorderLayout);
+
         pack();
     }
 
