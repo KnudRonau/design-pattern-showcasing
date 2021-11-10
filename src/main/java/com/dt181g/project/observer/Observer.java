@@ -1,6 +1,7 @@
 package com.dt181g.project.observer;
 
-public abstract class Observer {
-    protected RadioShow radioShow;
-    public abstract void update();
+public interface Observer {
+
+    void update(String broadcast);
+    void followRadioShow(RadioShow radioShow);
 }

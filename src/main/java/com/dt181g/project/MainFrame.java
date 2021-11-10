@@ -1,5 +1,7 @@
 package com.dt181g.project;
 
+import com.dt181g.project.observer.RadioShow;
+import com.dt181g.project.observer.RadioUnit;
 import com.dt181g.project.templateMethod.Sub1;
 import com.dt181g.project.templateMethod.Sub2;
 import com.dt181g.project.templateMethod.TemplateDemo;
@@ -16,6 +18,7 @@ public class MainFrame extends JFrame {
     private JPanel north;
     private JPanel west;
     private JTextArea center;
+    private RadioShow radioShow;
 
     public MainFrame() {
 //        contentpane = new JPanel();
@@ -35,8 +38,9 @@ public class MainFrame extends JFrame {
         add(north, BorderLayout.NORTH);
 
 
-        addElements(west, new GridLayout(5, 2, 20, 20), 8, 1);
+        addElements(west, new GridLayout(5, 2, 20, 20), 6, 1);
         addTemplateButtons(west);
+        addObserverButton(west);
         add(west, BorderLayout.WEST);
 
         center.setText("Welcome to the mainframe! This frame is manages using BorderLayout.\n\n" +
@@ -50,7 +54,7 @@ public class MainFrame extends JFrame {
         pack();
     }
 
-    public static void addElements(JPanel panel, LayoutManager mgr, int amount, int type) {
+    private static void addElements(JPanel panel, LayoutManager mgr, int amount, int type) {
         panel.setLayout(mgr);
         panel.setBorder(new EmptyBorder(10,10,10,10));
         for(int i = 0; i < amount; i++) {
@@ -64,7 +68,26 @@ public class MainFrame extends JFrame {
 
     }
 
-    public void addTemplateButtons(JPanel panel) {
+    private void addObserverButton(JPanel panel) {
+        this.radioShow = new RadioShow();
+        RadioUnit radio1 = new RadioUnit("Transistor Radio");
+        RadioUnit radio2 = new RadioUnit("Car Radio");
+        RadioUnit radio3 = new RadioUnit("SmartPhone");
+        radio1.followRadioShow(radioShow);
+        radio2.followRadioShow(radioShow);
+        radio3.followRadioShow(radioShow);
+        radioShow.addRadioUnit(radio1);
+        radioShow.addRadioUnit(radio2);
+        radioShow.addRadioUnit(radio3);
+
+        var button = new JButton("Do a radio broadcast!");
+        panel.add(button);
+        button.addActionListener(event ->
+                radioShow.doBroadcast());
+
+    }
+
+    private void addTemplateButtons(JPanel panel) {
         TemplateDemo sub1 = new Sub1();
         TemplateDemo sub2 = new Sub2();
         var button1 = new JButton("SubClass 1 button");

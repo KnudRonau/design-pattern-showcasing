@@ -2,24 +2,26 @@ package com.dt181g.project.observer;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 
-public class RadioShow  {
-    private List<Observer> observers = new ArrayList<Observer>();
-    private String broadcast;
+public class RadioShow implements Observable {
+    private List<RadioUnit> radioUnits = new ArrayList<RadioUnit>();
+//    private String broadcast;
 
-    public void addObserver(Observer observer) {
-        observers.add(observer);
+    @Override
+    public void addRadioUnit(RadioUnit radioUnit) {
+        radioUnits.add(radioUnit);
     }
 
-    public void removeObserver(Observer observer) {
-        observers.remove(observer);
+    @Override
+    public void removeRadioUnit(RadioUnit radioUnit) {
+        radioUnits.remove(radioUnit);
     }
 
-    public void doBroadcast(String broadcast) {
-        this.broadcast = broadcast;
-        for(Observer observer : observers) {
-            observer.update();
+    @Override
+    public void doBroadcast() {
+//        this.broadcast = broadcast;
+        for(RadioUnit radioUnit : radioUnits) {
+            radioUnit.update("The daily weather report!");
         }
     }
 
