@@ -1,7 +1,7 @@
 package com.dt181g.project.observer;
 
 public class RadioUnit implements Observer {
-    private RadioShow radioShow;
+    private Observable observable;
     private String name;
 
     public RadioUnit(String name) {
@@ -15,7 +15,7 @@ public class RadioUnit implements Observer {
     }
 
     @Override
-    public void followRadioShow(RadioShow radioShow) {
-        this.radioShow = radioShow;
+    public void followObservable(Observable o) {
+        this.observable = o;
     }
 }

@@ -17,10 +17,10 @@ public class Consumer extends Thread{
     public void run() {
         while(true) {
             try {
-                int newResources = rand.nextInt(10) + 1;
+                int newResources = rand.nextInt(10);
                 int interval = rand.nextInt(5) + 1;
                 resourcePool.removeResources(newResources);
-                System.out.println(num + " has consumed " + newResources + " resources");
+//                System.out.println(num + " has consumed " + newResources + " resources");
                 sleep( interval * 500);
             } catch (InterruptedException e) {
                 e.printStackTrace();

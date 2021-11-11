@@ -2,9 +2,9 @@ package com.dt181g.project.observer;
 
 public interface Observable {
 
-    void addRadioUnit(RadioUnit radioUnit);
+    void addObserver(Observer o);
 
-    void removeRadioUnit(RadioUnit radioUnit);
+    void removeObserver(Observer o);
 
     void doBroadcast();
 }
