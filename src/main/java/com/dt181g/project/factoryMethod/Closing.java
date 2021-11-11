@@ -4,6 +4,6 @@ public class Closing implements Announcement{
 
     @Override
     public String getMessage() {
-        return "\nTHIS IS A CLOSING ANNOUNCEMENT! THE CENTRE CLOSES IN 15 MINUTES";
+        return "\nTHIS IS A CLOSING ANNOUNCEMENT! THE CENTRE CLOSES IN 15 MINUTES\n";
     }
 }

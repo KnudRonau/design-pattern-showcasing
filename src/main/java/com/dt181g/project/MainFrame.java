@@ -76,17 +76,29 @@ public class MainFrame extends JFrame {
         panel.setLayout(new BorderLayout());
         panel.setBorder(new EmptyBorder(10, 10, 10, 10));
         panel.setSize(new Dimension(300, 100));
-        panel.add(new JLabel("Get an announcement! Try 'Closing', 'Sale' or 'Warning'"), BorderLayout.NORTH);
+        panel.add(new JLabel("Get an announcement! Try 'Closing', 'Sale' or 'Warning' - " +
+                "Below you can enter a super secret password"), BorderLayout.NORTH);
         var textField = new JTextField("Write here!", 30);
         textField.addActionListener(event -> {
             factory = new GetAnnouncementFactory();
             if(factory.getAnnouncement(textField.getText()) != null) {
                 center.append(factory.getAnnouncement(textField.getText()).getMessage());
             }
+            textField.setText("");
         });
         panel.add(textField, BorderLayout.CENTER);
         panel.add(addList(), BorderLayout.EAST);
+        panel.add(addPasswordField(), BorderLayout.SOUTH);
 
+    }
+
+    private JPasswordField addPasswordField() {
+        JPasswordField passwordField = new JPasswordField(20);
+        passwordField.addActionListener(event -> {
+            center.append(new String(passwordField.getPassword()) + "\n");
+            passwordField.setText("");
+        });
+        return passwordField;
     }
 
     private void addWelcomeMessageButton(JPanel panel) {
