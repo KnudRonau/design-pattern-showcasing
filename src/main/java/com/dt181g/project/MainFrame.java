@@ -24,8 +24,8 @@ public class MainFrame extends JFrame {
     private JTextArea center;
     private RadioShow radioShow;
     private GetAnnouncementFactory factory;
-    private DanishFactory danishToyFactory;
-    private SwedishFactory swedishToyFactory;
+    private DanishFactory danishFactory;
+    private SwedishFactory swedishFactory;
 
     public MainFrame() {
 
@@ -45,6 +45,7 @@ public class MainFrame extends JFrame {
         addWelcomeMessageButton(west);
         addTemplateButtons(west);
         addObserverButton(west);
+        addAbstractButtons(west);
 
 
         add(west, BorderLayout.WEST);
@@ -123,6 +124,29 @@ public class MainFrame extends JFrame {
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
         panel.setBorder(new EmptyBorder(10,10,10,10));
+    }
+
+    private void addAbstractButtons(JPanel panel) {
+        danishFactory = new DanishFactory();
+        swedishFactory = new SwedishFactory();
+        JButton danishSofa = new JButton("Get a Danish Sofa!");
+        JButton swedishSofa = new JButton("Get a Swedish Sofa!");
+        JButton danishToy = new JButton("Get a Danish Toy!");
+        JButton swedishToy = new JButton("Get Swedish Toy!");
+
+        danishSofa.addActionListener(event ->
+                center.append("\n" + danishFactory.createSofa().getInfo()));
+        swedishSofa.addActionListener(event ->
+                center.append("\n" + swedishFactory.createSofa().getInfo()));
+        danishToy.addActionListener(event ->
+                center.append("\n" + danishFactory.createToy().getInfo()));
+        swedishToy.addActionListener(event ->
+                center.append("\n" + swedishFactory.createToy().getInfo()));
+
+        panel.add(danishSofa);
+        panel.add(swedishSofa);
+        panel.add(danishToy);
+        panel.add(swedishToy);
 
     }
 
