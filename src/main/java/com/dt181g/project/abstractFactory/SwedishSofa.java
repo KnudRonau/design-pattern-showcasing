@@ -30,6 +30,6 @@ public class SwedishSofa implements Sofa{
     @Override
     public String getInfo() {
         return "Name: " + getName() + "\nCountry of Origin: " + getOriginCountry() + "\nLength in meters: " + getLength()
-                + "\nComfort Level: " + getComfortLevel() + "\nPrice: " + getPrice();
+                + "\nComfort Level: " + getComfortLevel() + "\nPrice: " + getPrice() + "\n";
     }
 }

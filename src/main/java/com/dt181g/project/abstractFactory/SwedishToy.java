@@ -25,6 +25,6 @@ public class SwedishToy implements Toy {
     @Override
     public String getInfo() {
         return "Name: " + getName() + "\nCountry of Origin: " + getOriginCountry()
-                + "\nAmount of Fun: " + getFunRating() + "\nPrice: " + getPrice();
+                + "\nAmount of Fun: " + getFunRating() + "\nPrice: " + getPrice() + "\n";
     }
 }
