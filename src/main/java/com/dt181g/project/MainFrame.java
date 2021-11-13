@@ -1,7 +1,7 @@
 package com.dt181g.project;
 
-import com.dt181g.project.abstractFactory.DanishToyFactory;
-import com.dt181g.project.abstractFactory.SwedishToyFactory;
+import com.dt181g.project.abstractFactory.DanishFactory;
+import com.dt181g.project.abstractFactory.SwedishFactory;
 import com.dt181g.project.factoryMethod.GetAnnouncementFactory;
 import com.dt181g.project.observer.RadioShow;
 import com.dt181g.project.observer.RadioUnit;
@@ -12,7 +12,6 @@ import com.dt181g.project.templateMethod.TemplateDemo;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.time.chrono.JapaneseChronology;
 
 public class MainFrame extends JFrame {
     private static final int DEFAULT_WIDTH = 1200;
@@ -25,8 +24,8 @@ public class MainFrame extends JFrame {
     private JTextArea center;
     private RadioShow radioShow;
     private GetAnnouncementFactory factory;
-    private DanishToyFactory danishToyFactory;
-    private SwedishToyFactory swedishToyFactory;
+    private DanishFactory danishToyFactory;
+    private SwedishFactory swedishToyFactory;
 
     public MainFrame() {
 

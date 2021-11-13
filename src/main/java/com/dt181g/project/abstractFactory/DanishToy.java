@@ -1,25 +1,36 @@
 package com.dt181g.project.abstractFactory;
 
-public class PremiumSwedishToy implements Toy{
+public class DanishToy implements Toy {
+    private String name;
+    private String originCountry;
+    private String funRating;
+    private String price;
+
+    public DanishToy() {
+        this.name = "Big Lego box";
+        this.originCountry = "Denmark";
+        this.funRating = "10/10";
+        this.price = "200 real crowns";
+    }
 
     @Override
     public String getName() {
-        return "Expensive Boring Swedish Toy";
+        return "Big Lego Box";
     }
 
     @Override
     public String getOriginCountry() {
-        return "Sweden";
+        return "Denmark";
     }
 
     @Override
     public String getFunRating() {
-        return "4.5/10";
+        return "10/10";
     }
 
     @Override
     public String getPrice() {
-        return "250 Fake Crowns";
+        return "200 Real Crowns";
     }
 
     @Override
