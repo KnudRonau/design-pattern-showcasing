@@ -56,7 +56,6 @@ public class MainFrame extends JFrame {
         setupTextField(south);
         add(south, BorderLayout.SOUTH);
 //        south.add
-
         pack();
     }
 
