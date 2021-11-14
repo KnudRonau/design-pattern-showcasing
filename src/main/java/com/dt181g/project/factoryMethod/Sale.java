@@ -1,5 +1,9 @@
 package com.dt181g.project.factoryMethod;
 
+/**
+ * Concrete class implementing Announcement. Responsible for returning a sale message.
+ * @author Knud Ronau Larsen
+ */
 public class Sale implements Announcement{
 
     @Override

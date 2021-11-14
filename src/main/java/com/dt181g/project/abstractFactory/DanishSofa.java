@@ -1,5 +1,9 @@
 package com.dt181g.project.abstractFactory;
 
+/**
+ * Concrete class implementing Sofa responsible for returning various information regarding a danish sofa.
+ * @author Knud Ronau Larsen
+ */
 public class DanishSofa implements Sofa{
 
     @Override

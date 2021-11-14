@@ -1,11 +1,19 @@
 package com.dt181g.project.observer;
 
+/**
+ * Concrete RadioUnit implementing Observer. Follows an observable and prints a broadcast when called by observable.
+ * @author Knud Ronau Larsen
+ */
 public class RadioUnit implements Observer {
     private Observable observable;
     private String name;
 
+    /**
+     * Constructor to store a name for the unit
+     * @param name unit's name
+     */
     public RadioUnit(String name) {
-        super();
+//        super();
         this.name = name;
     }
 

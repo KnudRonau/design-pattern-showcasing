@@ -1,5 +1,9 @@
 package com.dt181g.project.abstractFactory;
 
+/**
+ * Concrete class implementing Toy responsible for returning various information regarding a swedish toy.
+ * @author Knud Ronau Larsen
+ */
 public class SwedishToy implements Toy {
 
     @Override

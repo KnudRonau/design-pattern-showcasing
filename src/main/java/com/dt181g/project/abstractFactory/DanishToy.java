@@ -1,17 +1,10 @@
 package com.dt181g.project.abstractFactory;
 
+/**
+ * Concrete class implementing Toy responsible for returning various information regarding a danish toy.
+ * @author Knud Ronau Larsen
+ */
 public class DanishToy implements Toy {
-    private String name;
-    private String originCountry;
-    private String funRating;
-    private String price;
-
-    public DanishToy() {
-        this.name = "Big Lego box";
-        this.originCountry = "Denmark";
-        this.funRating = "10/10";
-        this.price = "200 real crowns";
-    }
 
     @Override
     public String getName() {

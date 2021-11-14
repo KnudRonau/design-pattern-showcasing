@@ -3,9 +3,13 @@ package com.dt181g.project.observer;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Concrete RadioShow implementing Observable for showcasing observer pattern. Responsible for storing observers and
+ * calling their update methods
+ * @author Knud Ronau Larsen
+ */
 public class RadioShow implements Observable {
-    private List<Observer> observers = new ArrayList<Observer>();
-//    private String broadcast;
+    private List<Observer> observers = new ArrayList<>();
 
     @Override
     public void addObserver(Observer o) {
@@ -18,8 +22,7 @@ public class RadioShow implements Observable {
     }
 
     @Override
-    public void doBroadcast() {
-//        this.broadcast = broadcast;
+    public void update() {
         for(Observer o : observers) {
             o.update("The daily weather report!");
         }

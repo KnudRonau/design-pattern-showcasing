@@ -1,5 +1,9 @@
 package com.dt181g.project.templateMethod;
 
+/**
+ * Concrete class extending TemplateDemo, responsible for implementing the two abstract methods.
+ * @author Knud Ronau Larsen
+ */
 public class Sub2 extends TemplateDemo {
 
     @Override
