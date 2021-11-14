@@ -29,7 +29,7 @@ public class Consumer extends Thread{
     public void run() {
         while(true) {
             try {
-                int newResources = rand.nextInt(7);
+                int newResources = rand.nextInt(8);
                 int interval = rand.nextInt(5) + 1;
                 resourcePool.removeResources(newResources);
 //                System.out.println(num + " has consumed " + newResources + " resources");
