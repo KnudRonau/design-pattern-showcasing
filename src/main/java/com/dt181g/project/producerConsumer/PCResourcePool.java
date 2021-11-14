@@ -24,7 +24,7 @@ public class PCResourcePool {
 
     /**
      * Method to add an amount of resources to the resource pool if sufficient capacity is available.
-     * @param amount number of resourcs to add
+     * @param amount number of resources to add
      */
     public synchronized void addResources(int amount) {
         for(int i = 1; i <= amount; i++) {
