@@ -11,7 +11,7 @@ public class RadioUnit implements Observer {
 
     @Override
     public void update(String broadcast) {
-        System.out.println(name + " is now broadcasting " + broadcast);
+        System.out.println(" --  " + name + " is now broadcasting " + broadcast);
     }
 
     @Override

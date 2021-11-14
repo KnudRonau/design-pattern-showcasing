@@ -5,6 +5,7 @@ import com.dt181g.project.abstractFactory.SwedishFactory;
 import com.dt181g.project.factoryMethod.GetAnnouncementFactory;
 import com.dt181g.project.observer.RadioShow;
 import com.dt181g.project.observer.RadioUnit;
+import com.dt181g.project.streams.PersonFilter;
 import com.dt181g.project.templateMethod.Sub1;
 import com.dt181g.project.templateMethod.Sub2;
 import com.dt181g.project.templateMethod.TemplateDemo;
@@ -22,10 +23,12 @@ public class MainFrame extends JFrame {
     private JPanel west;
     private JPanel south;
     private JTextArea center;
+    private JScrollPane centerScrollPane;
     private RadioShow radioShow;
     private GetAnnouncementFactory factory;
     private DanishFactory danishFactory;
     private SwedishFactory swedishFactory;
+    private PersonFilter personFilter;
 
     public MainFrame() {
 
@@ -43,20 +46,47 @@ public class MainFrame extends JFrame {
 //        addElements(west, new GridLayout(5, 2, 20, 20), 6, 1);
         setupButtons(west);
         addWelcomeMessageButton(west);
+        west.add(new JLabel("Buttons for showcasing Template Method"));
         addTemplateButtons(west);
+        west.add(new JLabel("Button for showcasing Observer Pattern"));
         addObserverButton(west);
+        west.add(new JLabel("Buttons for showcasing Abstract Factory Pattern"));
         addAbstractButtons(west);
+        west.add(new JLabel("Buttons for showcasing use of Streams"));
+        addPersonFilterButtons(west);
 
 
         add(west, BorderLayout.WEST);
 
         setupCenterText(center);
-        add(center, BorderLayout.CENTER);
+        add(centerScrollPane, BorderLayout.CENTER);
 
         setupTextField(south);
         add(south, BorderLayout.SOUTH);
 //        south.add
         pack();
+    }
+
+    private void addPersonFilterButtons(JPanel panel) {
+        personFilter = new PersonFilter();
+        JButton allPeople = new JButton("Click to see all people!");
+        JButton filterMillionaire = new JButton("See Millionaires");
+        JButton nameSort = new JButton("Sort by name");
+        JButton oldest = new JButton("Reveal the oldest person");
+        JButton married = new JButton("See all the married folks");
+
+        allPeople.addActionListener(event -> center.setText(personFilter.getPeople()));
+        filterMillionaire.addActionListener(event -> center.setText(personFilter.getMillionaires()));
+        nameSort.addActionListener(event -> center.setText(personFilter.getSortedNames()));
+        oldest.addActionListener(event -> center.setText(personFilter.getOldest()));
+        married.addActionListener(event -> center.setText(personFilter.getMarried()));
+
+        panel.add(allPeople);
+        panel.add(filterMillionaire);
+        panel.add(nameSort);
+        panel.add(oldest);
+        panel.add(married);
+
     }
 
     private void setupLabels(JPanel panel, LayoutManager mgr, int amount) {
@@ -82,8 +112,8 @@ public class MainFrame extends JFrame {
         panel.add(new JLabel("Get an announcement! Try 'Closing', 'Sale' or 'Warning' - " +
                 "Below you can enter a super secret password"), BorderLayout.NORTH);
         var textField = new JTextField("Write here!", 30);
+        factory = new GetAnnouncementFactory();
         textField.addActionListener(event -> {
-            factory = new GetAnnouncementFactory();
             if(factory.getAnnouncement(textField.getText()) != null) {
                 center.append(factory.getAnnouncement(textField.getText()).getMessage());
             }
@@ -92,7 +122,6 @@ public class MainFrame extends JFrame {
         panel.add(textField, BorderLayout.CENTER);
         panel.add(addList(), BorderLayout.EAST);
         panel.add(addPasswordField(), BorderLayout.SOUTH);
-
     }
 
     private JPasswordField addPasswordField() {
@@ -116,6 +145,8 @@ public class MainFrame extends JFrame {
         textArea.setColumns(100);
         textArea.setFont(new Font("calibri", 1, 16));
         textArea.setEditable(false);
+        centerScrollPane = new JScrollPane(textArea);
+
     }
 
     private void setupButtons(JPanel panel) {
