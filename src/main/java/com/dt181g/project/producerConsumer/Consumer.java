@@ -32,7 +32,6 @@ public class Consumer extends Thread{
                 int newResources = rand.nextInt(8);
                 int interval = rand.nextInt(5) + 1;
                 resourcePool.removeResources(newResources);
-//                System.out.println(num + " has consumed " + newResources + " resources");
                 sleep( interval * 500);
             } catch (InterruptedException e) {
                 e.printStackTrace();

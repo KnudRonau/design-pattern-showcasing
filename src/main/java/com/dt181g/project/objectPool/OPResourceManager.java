@@ -21,7 +21,6 @@ public class OPResourceManager {
         }
     }
 
-
     public OPResource getResource() {
         return resources.pollFirst();
     }

@@ -13,7 +13,6 @@ public class RadioUnit implements Observer {
      * @param name unit's name
      */
     public RadioUnit(String name) {
-//        super();
         this.name = name;
     }
 
