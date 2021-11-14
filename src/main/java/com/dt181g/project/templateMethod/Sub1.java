@@ -11,12 +11,4 @@ public class Sub1 extends TemplateDemo {
     public String lineTwo() {
         return "If you click on Template Button 2, you will see what the other subclass has to offer!\n";
     }
-
-    @Override
-    public String lineThree() {
-        return "Isn't the template method just neat?\n";
-    }
-
-
-
 }

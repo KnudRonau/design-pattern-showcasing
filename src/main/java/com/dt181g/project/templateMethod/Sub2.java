@@ -12,10 +12,4 @@ public class Sub2 extends TemplateDemo {
         return "This is what the other class returns! WOW \n";
     }
 
-    @Override
-    public String lineThree() {
-        return "Isn't the template method just neat?\n";
-    }
-
-
 }

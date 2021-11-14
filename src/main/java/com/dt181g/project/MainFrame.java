@@ -17,7 +17,6 @@ import java.awt.*;
 public class MainFrame extends JFrame {
     private static final int DEFAULT_WIDTH = 1200;
     private static final int DEFAULT_HEIGHT = 800;
-    private JPanel contentpane;
     private JPanel east;
     private JPanel north;
     private JPanel west;
@@ -34,28 +33,13 @@ public class MainFrame extends JFrame {
 
         instantiatePanels();
 
-//        addElements(east, new BoxLayout(east, BoxLayout.Y_AXIS), 10, 2);
         setupLabels(east, new GridLayout(5, 2, 20, 20), 6);
         add(east, BorderLayout.EAST);
-
 
         setupLabels(north, new FlowLayout(FlowLayout.CENTER, 20, 20), 6);
         add(north, BorderLayout.NORTH);
 
-
-//        addElements(west, new GridLayout(5, 2, 20, 20), 6, 1);
         setupButtons(west);
-        addWelcomeMessageButton(west);
-        west.add(new JLabel("Buttons for showcasing Template Method"));
-        addTemplateButtons(west);
-        west.add(new JLabel("Button for showcasing Observer Pattern"));
-        addObserverButton(west);
-        west.add(new JLabel("Buttons for showcasing Abstract Factory Pattern"));
-        addAbstractButtons(west);
-        west.add(new JLabel("Buttons for showcasing use of Streams"));
-        addPersonFilterButtons(west);
-
-
         add(west, BorderLayout.WEST);
 
         setupCenterText(center);
@@ -63,9 +47,10 @@ public class MainFrame extends JFrame {
 
         setupTextField(south);
         add(south, BorderLayout.SOUTH);
-//        south.add
+
         pack();
     }
+
 
     private void addPersonFilterButtons(JPanel panel) {
         personFilter = new PersonFilter();
@@ -100,12 +85,10 @@ public class MainFrame extends JFrame {
     private JList addList() {
         String[] numbers = {"List Item One", "List Item Two", "List Item Three", "List Item Four", "List Item Five",
                 "List Item Six"};
-        JList<String> list = new JList<>(numbers);
-        return list;
+        return new JList<>(numbers);
     }
 
     private void setupTextField(JPanel panel) {
-//        panel.setLayout(new CardLayout(10, 10));
         panel.setLayout(new BorderLayout());
         panel.setBorder(new EmptyBorder(10, 10, 10, 10));
         panel.setSize(new Dimension(300, 100));
@@ -143,17 +126,30 @@ public class MainFrame extends JFrame {
     private void setupCenterText(JTextArea textArea) {
         setWelcomeText();
         textArea.setColumns(100);
-        textArea.setFont(new Font("calibri", 1, 16));
+        textArea.setFont(new Font("calibri", Font.BOLD, 16));
         textArea.setEditable(false);
         centerScrollPane = new JScrollPane(textArea);
 
     }
 
     private void setupButtons(JPanel panel) {
-//        BoxLayout boxLayout = new BoxLayout(panel, BoxLayout.Y_AXIS);
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-
         panel.setBorder(new EmptyBorder(10,10,10,10));
+
+        addWelcomeMessageButton(panel);
+
+        panel.add(new JLabel("Buttons for showcasing Template Method"));
+        addTemplateButtons(panel);
+
+        panel.add(new JLabel("Button for showcasing Observer Pattern"));
+        addObserverButton(panel);
+
+        panel.add(new JLabel("Buttons for showcasing Abstract Factory Pattern"));
+        addAbstractButtons(panel);
+
+        panel.add(new JLabel("Buttons for showcasing use of Streams"));
+        addPersonFilterButtons(panel);
+
     }
 
     private void addAbstractButtons(JPanel panel) {
@@ -181,10 +177,15 @@ public class MainFrame extends JFrame {
     }
 
     private void setWelcomeText() {
-        center.setText("Welcome to the mainframe! This frame is manages using BorderLayout.\n\n" +
-                "Look up and see JLabels managed by a FlowLayout\n" +
-                "Look to your right and see JLabels managed by a BoxLayout\n" +
-                "Look to your left and see JButtons managed by a GridLayout.\n");
+        center.setText("""
+                Welcome to the mainframe! This frame is managed using BorderLayout.
+
+                Look up and see JLabels managed by a FlowLayout
+                Look to your right and see JLabels managed by a GridLayout
+                Look to your left and see JButtons managed by a BoxLayout.
+                Try the buttons! They do all sorts of cool stuff.
+                Look down to see a TextField and a PasswordField. Get an Announcement from the first!
+                But be careful with the latter. Your password might not be as safe as you'd hope.""");
     }
 
     private void addObserverButton(JPanel panel) {

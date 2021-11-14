@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 public class PersonFilter {
-    private List<Person> persons = new ArrayList<>();
+    private final List<Person> persons = new ArrayList<>();
 
     public PersonFilter() {
         persons.add(new Person("Bob", 22, 25000, false));
@@ -22,18 +22,12 @@ public class PersonFilter {
         persons.add(new Person("Signe", 29, 150000, false));
     }
 
-//    public List<Person> getMillionaires() {
-//        return persons.stream().filter(person -> person.getNetWorth() > 1000000).collect(Collectors.toList());
-//
-//    }
-
     public String getPeople() {
         return allToString(persons);
     }
 
     public String getMillionaires() {
         List<Person> millionaires = persons.stream().filter(person -> person.getNetWorth() > 1000000).collect(Collectors.toList());
-//        System.out.println(transformToString(millionaires));
         return namesToString(millionaires);
     }
 
@@ -55,18 +49,18 @@ public class PersonFilter {
     }
 
     private String namesToString(List<Person> personList) {
-        String info = new String();
+        StringBuilder info = new StringBuilder();
         for(Person person : personList) {
-            info = info + person.getName() + "\n";
+            info.append(person.getName()).append("\n");
         }
-        return info;
+        return info.toString();
     }
 
     private String allToString(List<Person> personList) {
-        String info = new String();
+        StringBuilder info = new StringBuilder();
         for(Person person : personList) {
-            info = info + person.toString() + "\n";
+            info.append(person.toString()).append("\n");
         }
-        return info;
+        return info.toString();
     }
 }

@@ -8,6 +8,8 @@ public abstract class TemplateDemo {
 
     public abstract String lineOne();
     public abstract String lineTwo();
-    public abstract String lineThree();
+    public final String lineThree() {
+        return "Isn't the template method just neat?\n";
+    }
 
 }

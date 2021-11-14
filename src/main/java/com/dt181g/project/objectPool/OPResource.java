@@ -6,8 +6,14 @@ public class OPResource {
         this.value = value;
     }
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return Integer.toString(value);
+    }
+
+    public void useResource() {
+        System.out.println("The resource numbered " + value + " is now being used, " +
+                "and will be returned afterwards");
     }
 
 }
